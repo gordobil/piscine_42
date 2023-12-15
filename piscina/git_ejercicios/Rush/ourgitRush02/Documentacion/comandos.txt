@@ -1,0 +1,6 @@
+# valgrind
+https://github.com/kube/42homebrew
+
+https://stackoverflow.com/questions/58360093/how-to-install-valgrind-on-macos-catalina-10-15-with-homebrew
+
+valgrind --leak-check=full ./a.out

@@ -1,0 +1,69 @@
+
+
+Link del video: https://www.youtube.com/watch?v=MtqFZRXaeM0&ab_channel=WhileTrueThenDream
+
+- COMENTARIOS -
+
+flags -> Modo de acceso al fichero (O_RDONLY  , solo de lectura )
+
+Si la funcion open() tiene algun error en la apertura del archivo devuelve un valor -1
+
+La funcion read tiene un descriptor del fichero(fd), un buffer (va leyendo los caracteres leidos), y el (count) el numero de bytes que vamos a leer del fichero, si el fichero tiene 200 caracteres solo vamos a leer 5(valor que tenga count), en caso de que tenga menos vamos a leer los que tiene
+
+Read() devuelve un numero (formato ssize_t) que es numero de caracteres que ha leido
+
+Despues de operar con un fichero tenemos que cerrarlo, si no nos puede dar error
+
+Convertimos a un entero: (int)nr_bytes
+
+Como ultimo paso compila para poder ejecutarlo
+_________________________
+-ESTRUCTURA-
+
+ft open: int open(const char *pathname, int flags);
+ft read: ssize_t read(int fd, void *buf, size_t count)
+ft close: int close(int fd);
+___________________________
+
+-LIBRERIAS NECESARIAS-
+
+#include <fcntl.h>
+#include <unistd.h>
+___________________________
+
+-CODIGO-
+
+int main(void)
+{
+	int fd;
+	char buf[10]; //Creamos un array para la funcion read que almecene 10 bytes
+	ssize_t nr_bytes; // nos devuelve el numero real de bytes que se han leido
+
+	//fd =  Valor entero que recibe la funcion open
+	fd = open("ruta del fichero", O_RDONLY);
+
+	if(fd == -1)
+	{
+		printf("Error al abrir el archivo \n");
+	}
+	else
+	{ // Si lo abrimos con exito llamaremos a la funcion read()
+		// nr_bytes nos devuelve el numero real de bytes que se han leido
+		nr_bytes = read(fd, buf, 5);
+
+		close(fd); //Argumento de entrada es el descriptor del archivo (fd)
+
+		if(nr_bytes == 0) // Si el numero de bytes es igual a 0
+		{
+			printf("Archivo vacio \n"); // El archivo que leemos esta vacio
+		}
+		else // Si no es 0
+		{
+			// nr_bytes (numero caracteres), buf (estan los caracteres almacenados)
+			printf("el numero de caracteres es %d, contenido: %s \n", (int)nr_bytes, buf);
+		}
+
+	}
+	
+	return 0;
+}
