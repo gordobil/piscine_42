@@ -6,11 +6,12 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 11:07:54 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/13 11:49:44 by ngordobi         ###   ########.fr       */
+/*   Updated: 2023/12/15 15:38:51 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, unsigned int	n)
 {

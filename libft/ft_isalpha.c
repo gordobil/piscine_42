@@ -6,11 +6,12 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:46 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/15 12:41:43 by ngordobi         ###   ########.fr       */
+/*   Updated: 2023/12/15 15:37:23 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
+#include "libft.h"
 
 int ft_isalpha(unsigned char c)
 {

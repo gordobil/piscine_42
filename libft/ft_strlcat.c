@@ -6,11 +6,12 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 11:51:51 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/13 12:10:47 by ngordobi         ###   ########.fr       */
+/*   Updated: 2023/12/15 15:38:00 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
+#include "libft.h"
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {

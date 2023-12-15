@@ -6,11 +6,12 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 13:17:09 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/11 13:34:03 by ngordobi         ###   ########.fr       */
+/*   Updated: 2023/12/15 15:38:18 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
+#include "libft.h"
 
 unsigned int	ft_strlcpy(char	*dst, char	*src, unsigned int dstsize)
 {

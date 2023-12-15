@@ -6,12 +6,12 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:59:40 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/15 12:53:46 by ngordobi         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:25:59 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef LIBFT
 #define LIBFT
-#ifdef LIBFT
 
 int	ft_atoi(char *str);
 int	ft_isalpha(unsigned char c);
