@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 10:30:28 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/18 12:09:13 by ngordobi         ###   ########.fr       */
+/*   Created: 2023/12/18 14:27:31 by ngordobi          #+#    #+#             */
+/*   Updated: 2023/12/18 15:54:23 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "plibft.h"
+//#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+char *ft_strrchr(const char *s, int c)
 {
-	unsigned char	str[] = "hola35 26";
-	int r;
-	int	i;
+	const char *last_c;
 
-	r = 0;
-	i = 0;
-	while (str[i] != '\0')
+	last_c = NULL;
+	while(*s != '\0')
 	{
-		r = ft_isalnum(str[i]);
-		if (r == 0)
-			break;
-		printf("%d %c\n", r, str[i]);
-		i++;
+		if(*s == c)
+			last_c = s;
+		s++;
 	}
-	printf("\n%d", r);
-	return (0);
+	return((char *)last_c);
 }
+
+/*int main(void)
+{
+	const char	s[] = "hola, buenas";	
+
+	printf("found: %s", ft_strrchr(s, 'a'));
+	return (0);
+}*/

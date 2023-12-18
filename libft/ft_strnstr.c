@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 12:17:13 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/15 15:39:12 by ngordobi         ###   ########.fr       */
+/*   Updated: 2023/12/18 10:52:28 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,22 @@
 
 char	*ft_strnstr(char *haystack, char *needle, unsigned int len)
 {
-	if (*needle == '\0')
+	unsigned int	i;
+	unsigned int	j;
+
+	i = 0;
+	j = 0;
+	if (needle[j] == '\0')
 		return (haystack);
-	while (*haystack != '\0')
+	while ((haystack[i] != '\0') && (i < len))
 	{
-		while (*haystack == *needle && *needle != '\0')
+		while (haystack[i] == needle[j] && needle[j] != '\0')
 		{
 			return ((char *)haystack);
-			haystack++;
-			needle++;
+			i++;
+			j++;
 		}
-		haystack++;
+		i++;
 	}
 	return (0);
 }

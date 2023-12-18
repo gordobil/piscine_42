@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 10:30:28 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/18 12:09:13 by ngordobi         ###   ########.fr       */
+/*   Created: 2023/12/13 10:42:01 by ngordobi          #+#    #+#             */
+/*   Updated: 2023/12/18 12:09:04 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 #include "plibft.h"
 
-int main(void)
+int	ft_isdigit(unsigned char c)
 {
-	unsigned char	str[] = "hola35 26";
-	int r;
-	int	i;
-
-	r = 0;
-	i = 0;
-	while (str[i] != '\0')
-	{
-		r = ft_isalnum(str[i]);
-		if (r == 0)
-			break;
-		printf("%d %c\n", r, str[i]);
-		i++;
-	}
-	printf("\n%d", r);
-	return (0);
+	if (c < '0' || c > '9')
+		return (0);
+	return (1);
 }
+
+/*int	main(void)
+{
+	unsigned char	c = '=';
+
+	printf("%d", ft_isdigit(c));
+	return (0);
+}*/

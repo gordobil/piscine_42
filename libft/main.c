@@ -6,12 +6,12 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:30:28 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/18 12:09:13 by ngordobi         ###   ########.fr       */
+/*   Updated: 2023/12/18 10:31:08 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "plibft.h"
+#include "libft.h"
 
 int main(void)
 {

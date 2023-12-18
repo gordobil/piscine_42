@@ -6,11 +6,11 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:43:12 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/15 15:44:12 by ngordobi         ###   ########.fr       */
+/*   Updated: 2023/12/18 10:30:14 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 #include "libft.h"
 
 /*int ft_isalpha(unsigned char c)
@@ -38,7 +38,7 @@ int	ft_isalnum(unsigned char c)
 	return (r);
 }
 
-int main(void)
+/*int main(void)
 {
 	unsigned char	str[] = "hola35 26";
 	int r;
@@ -56,4 +56,4 @@ int main(void)
 	}
 	printf("\n%d", r);
 	return (0);
-}
+}*/
