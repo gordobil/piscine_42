@@ -6,7 +6,7 @@
 #    By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/15 16:12:44 by ngordobi          #+#    #+#              #
-#    Updated: 2023/12/19 12:16:48 by ngordobi         ###   ########.fr        #
+#    Updated: 2023/12/19 13:38:01 by ngordobi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ LIBRARY = ar rcs
 
 SOURCES = main.c ft_atoi.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii\
 		  ft_isprint ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strncmp.c\
-		  ft_strnstr.c ft_strchr.c ft_strrchr.c ft_memset.c
+		  ft_strnstr.c ft_strchr.c ft_strrchr.c ft_memset.c ft_memcpy.c\
+		  ft_memmove.c
 OBJECTS = $(SOURCES:.c=.o)
 
 INCLUDE = libft.h
