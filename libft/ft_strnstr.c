@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 12:17:13 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/18 10:52:28 by ngordobi         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:26:18 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char	*ft_strnstr(char *haystack, char *needle, unsigned int len)
 	char	haystack[] = "hey, ke pasa ke";
 	char	needle[] = "ke";
 
-	printf("%c\n%p\n%c\n%p", *needle, needle, *ft_strnstr(haystack, needle, 20), ft_strnstr(haystack, needle, 20));
+	printf("%c\n%p\n%c\n%p", *needle, needle, *ft_strnstr(haystack, needle, 20),
+		  ft_strnstr(haystack, needle, 20));
 	return (0);
 }*/

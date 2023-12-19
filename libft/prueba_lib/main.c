@@ -6,26 +6,27 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:30:28 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/18 12:09:13 by ngordobi         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:50:04 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "plibft.h"
 
-int main(void)
+int	main(void)
 {
-	unsigned char	str[] = "hola35 26";
-	int r;
-	int	i;
+	unsigned char	str[20];
+	int				r;
+	int				i;
 
+	str[] = "hola35 26";
 	r = 0;
 	i = 0;
 	while (str[i] != '\0')
 	{
 		r = ft_isalnum(str[i]);
 		if (r == 0)
-			break;
+			break ;
 		printf("%d %c\n", r, str[i]);
 		i++;
 	}

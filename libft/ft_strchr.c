@@ -6,23 +6,23 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 14:27:31 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/18 15:41:58 by ngordobi         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:24:20 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 #include "libft.h"
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	while(*s != '\0')
+	while (*s != '\0')
 	{
-		if(*s == c)
-			return((char *)s);
+		if (*s == c)
+			return ((char *)s);
 		s++;
 	}
-	if(c == '\0')
-		return((char *)s);
+	if (c == '\0')
+		return ((char *)s);
 	return (0);
 }
 

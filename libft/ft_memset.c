@@ -1,18 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   suma.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 12:33:25 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/19 12:40:55 by ngordobi         ###   ########.fr       */
+/*   Created: 2023/12/19 11:50:55 by ngordobi          #+#    #+#             */
+/*   Updated: 2023/12/19 12:46:28 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "prueba.h"
+//#include <stdio.h>
+#include "libft.h"
 
-int	suma(int x, int y)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	return (x + y);
+	size_t			i;
+	unsigned char	*s;
+
+	i = 0;
+	s = b;
+	while (i < len)
+	{
+		s[i] = (unsigned char)c;
+		i++;
+	}
+	return (b);
 }
+
+/*int	main(void)
+{
+	char b[] = "hola, ketal?";
+
+	printf("%s", ft_memset(b, '*', 3));
+	return (0);
+}*/

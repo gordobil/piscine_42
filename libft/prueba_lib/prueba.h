@@ -1,5 +1,17 @@
-#ifndef PLIB_H_INCLUDED
-#define PLIB_H_INCLUDED
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   prueba.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/19 12:39:16 by ngordobi          #+#    #+#             */
+/*   Updated: 2023/12/19 12:40:10 by ngordobi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PRUEBA_H
+# define PRUEBA_H
 
 int	suma(int x, int y);
 
