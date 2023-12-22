@@ -1,0 +1,20 @@
+set mouse=a
+set number
+syntax on
+set laststatus=2
+set nocompatible
+set wrap
+
+
+
+if filereadable(expand("~/.vimrc.plug"))
+        source ~/.vimrc.plug
+endif
+
+colorscheme gruvbox
+set bg=dark
+let g:gruvbox_contrast_dark = 'medium'
+
+let g:clang_library_path = '/usr/lib/x86_64-linux-gnu/libclang-14.so.1'
+
+let NERDTreeShowHidden = 1
