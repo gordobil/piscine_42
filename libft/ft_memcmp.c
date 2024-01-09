@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 11:15:12 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/26 15:34:52 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:19:54 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	{
 		a1++;
 		a2++;
-		printf("%zu   /   a1  %s   /   a2  %s\n", n, a1, a2);
 		n--;
 	}
 	return (*a1 - *a2);

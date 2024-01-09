@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 15:39:42 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/09 11:42:51 by ngordobi         ###   ########.fr       */
+/*   Created: 2024/01/09 13:31:20 by ngordobi          #+#    #+#             */
+/*   Updated: 2024/01/09 14:12:32 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strdup(const char *s1)
 {
-	char		ch;
-	const char	*str;
+	char	*s2;
 
-	str = s;
-	ch = (char)c;
-	while (n > 0)
-	{
-		if (*str == ch)
-			return ((void *)str);
-		n--;
-		str++;
-	}
-	return (0);
+	s2 = malloc((ft_strlen(s1) + 1) * sizeof(char));
+	if (s2 == NULL)
+		return (NULL);
+	ft_memcpy(s2, s1, ft_strlen(s1));
+	s2[ft_strlen(s1)] = '\0';
+	return (s2);
 }
-
-/*int	main(void)
-{
-	char	s[] = "hola";
-	
-	printf("%p", ft_memchr(s, 108, 5));
-	return (0);
-}*/

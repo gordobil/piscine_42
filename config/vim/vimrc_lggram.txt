@@ -1,9 +1,11 @@
-set mouse=a
+set mouse+=a
 set number
 syntax on
 set laststatus=2
 set nocompatible
 set wrap
+set ruler
+set clipboard=unnamed
 
 
 

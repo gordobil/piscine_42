@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 10:58:29 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/04 12:53:04 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/01/09 13:20:13 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	ft_bzero(void *s, size_t n)
 {
 	char	*str;
-	int		i;
+	size_t	i;
 
 	str = s;
 	i = 0;
