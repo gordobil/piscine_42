@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:00:02 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/26 16:15:57 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/01/10 12:19:16 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	ft_tolower(int c)
 {
-	if (c >= 'A' || c <= 'Z')
+	if (c >= 'A' && c <= 'Z')
 		return (c - 'A' + 'a');
 	else
 		return (c);

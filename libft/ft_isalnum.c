@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:43:12 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/18 10:30:14 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/01/10 13:56:35 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_isdigit(unsigned char c)
 	return (1);
 }*/
 
-int	ft_isalnum(unsigned char c)
+int	ft_isalnum(int c)
 {
 	int	r;
 

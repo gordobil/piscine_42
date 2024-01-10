@@ -6,37 +6,60 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 11:51:51 by ngordobi          #+#    #+#             */
-/*   Updated: 2023/12/15 15:38:00 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/01/10 14:45:01 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 #include "libft.h"
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	i;
+	int		i;
+	int		j;
+	size_t	len;
 
-	i = 0;
-	while (*dest)
+	len = ft_strlen(dst);
+	if (size > 0 && size > len)
 	{
-		dest++;
-		size--;
-		i++;
+		i = len;
+		j = 0;
+		while (src[j] && i < (int)size - 1)
+		{
+			dst[i] = src[j];
+			i++;
+			j++;
+		}
+		dst[i] = '\0';
+		return (len + ft_strlen(src));
 	}
-	while ((size > 0) && *src)
-	{
-		*dest = *src;
-		dest++;
-		src++;
-		size--;
-		i++;
-	}
-	*dest = '\0';
-	return (i - 1);
+	return (size + ft_strlen(src));
 }
 
-/*int	main(void)
+/*
+	i = 0;
+	j = 0;
+	while (dst[i] != 0)
+		i++;
+	while (src[i] != 0)
+	{
+		if (i < (size - 1))
+		{
+			dst[i] = src[j];
+			i++;
+			j++;
+		}
+		else
+		{
+			dst[i] = 0;
+			i++;
+		}
+	}
+	dst[i] = '\0';
+	return (i);
+}
+
+int	main(void)
 {
 	char	src[] = "hola";
 	char	dest[] = "agur";
