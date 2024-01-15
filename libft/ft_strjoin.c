@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:27:37 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/12 19:43:48 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:28:18 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {
-	char		*s3;
+	char	*s3;
 	size_t	i;
 	size_t	j;
 
