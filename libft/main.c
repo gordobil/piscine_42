@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:30:28 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/15 12:14:30 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/01/16 10:58:52 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	main(void)
 {
-	char	s[] = "";
+	char	*s;
 
+	s = "";
 	printf("%s", ft_substr(s, 0, 0));
 	return (0);
 }

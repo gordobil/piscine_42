@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:59:40 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/15 13:59:40 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/01/16 12:24:07 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int			ft_isascii(int c);
 int			ft_isprint(int c);
 size_t		ft_strlen(const char *s);
 int			ft_strncmp(const char *s1, const char *s2, unsigned int n);
-size_t      ft_strlen(cosize_t		ft_strlcpy(char	*dst, const char *src, size_t size);
+size_t		ft_strlen(const char *s);
+size_t		ft_strlcpy(char	*dst, const char *src, size_t size);
 size_t		ft_strlcat(char *dst, const char *src, size_t size);
 char		*ft_strnstr(const char *haystack, const char *needle,
 				size_t len);
@@ -43,5 +44,9 @@ void		*ft_calloc(size_t count, size_t size);
 char		*ft_strdup(const char *s1);
 char		*ft_substr(const char *s, unsigned int start, size_t len);
 char		*ft_strjoin(const char *s1, const char *s2);
+void		ft_putchar_fd(char c, int fd);
+void		ft_putstr_fd(char *s, int fd);
+void		ft_putendl_fd(char *s, int fd);
+void		ft_putnbr_fd(int n, int fd);
 
 #endif
