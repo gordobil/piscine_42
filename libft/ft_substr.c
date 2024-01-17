@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:59:11 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/15 13:59:14 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/01/15 14:02:22 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	char		*sub_s;
 	size_t		i;
 
-	if (len >= ft_strlen(s))
-		len = ft_strlen(s) - start;
+	if (len >= ft_strlen(s + start))
+		len = ft_strlen(s + start);
 	sub_s = malloc(sizeof(char) * (len + 1));
 	if (sub_s == NULL)
 		return (NULL);

@@ -1,65 +1,73 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   x_itoa.c                                           :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 19:57:26 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/16 13:55:43 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:08:47 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	nlen(int n)
+int	nlen(long n)
 {
 	int	i;
 
 	i = 0;
-	while (n > 0)
+	if (n < 0)
 	{
-		n = n/10;
+		n = n * -1;
+		i++;
+	}
+	if (n == 0)
+		i = 1;
+	while (n != 0)
+	{
+		n = n / 10;
 		i++;
 	}
 	return (i);
-}
-
-char	negative(int n)
-{
-	if (n < 0)
-		return ('-');
-	return ;
 }
 
 char	*ft_itoa(int n)
 {
 	char	*s;
 	int		len;
-	char	sign;
+	int		end;
+	long	nb;
 
-	sign = negative(n);
-	if (sign != '-')
+	len = nlen(n);
+	s = malloc((len + 1) * sizeof(char));
+	end = len;
+	len--;
+	nb = n;
+	if (s == NULL)
+		return (NULL);
+	if (nb < 0)
 	{
-		len = nlen(n) + 1;
-		s = malloc(len);
-	}
-	else
-	{
-		n = n * -1;
-		len = nlen(n) + 2;
-		s = malloc(len);
 		s[0] = '-';
-		s++;
-		n = n * -1;
+		nb = nb * -1;
 	}
-	if (n >= 10)
-		while (s++)
+	if (nb >= 0)
+	{
+		while (len != 0)
 		{
-			n
-			s = 
+			s[len] = (nb % 10) + '0';
+			len--;
+			nb = nb / 10;
 		}
-	else
-		s = n + '0';
 	}
+	if (s[0] != '-')
+		s[len] = nb + '0';
+	s[end] = '\0';
+	return (s);
 }
+
+/*int	main(void)
+{
+	printf("------------------------\n%s", ft_itoa(-2147483648));
+	return (0);
+}*/
