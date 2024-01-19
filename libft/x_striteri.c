@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   x_strtrim.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: ngordobi <ngordobi@student.42urduliz.com   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 19:46:46 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/15 11:30:33 by ngordobi         ###   ########.fr       */
+/*   Created: 2024/01/19 11:00:50 by ngordobi          #+#    #+#             */
+/*   Updated: 2024/01/19 11:03:43 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(const char *s1, const char *set)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
+
 }
