@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngordobi <ngordobi@student.42urduliz.com   +#+  +:+       +#+        */
+/*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 11:00:50 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/19 11:03:43 by ngordobi         ###   ########.fr       */
+/*   Created: 2024/01/22 12:50:00 by ngordobi          #+#    #+#             */
+/*   Updated: 2024/01/22 13:35:33 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,13 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
+	int		i;
 
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f(i, &s[i]);
+		i++;
+	}
+	s[i] = '\0';
 }

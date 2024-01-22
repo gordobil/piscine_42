@@ -6,38 +6,11 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 19:46:46 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/19 13:43:18 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:41:26 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char	*trim_set(const char	*set, int len)
-{
-	char	*set2;
-	int		i;
-	int		j;
-	int		x;
-
-	set2 = malloc(len);
-	i = 0;
-	x = 0;
-	while (set[i] != '\0')
-	{
-		j = 0;
-		while (set2[j] != '\0')
-		{
-			if (set[i] != set2[j])
-			{
-				set2[x] == set[i];
-				x++;
-			}
-			j++;
-		}
-		i++;
-	}
-	return (set2);
-}
 
 int	trim_start(const char *s1, const char *set)
 {
@@ -55,7 +28,10 @@ int	trim_start(const char *s1, const char *set)
 		while (set[j] != '\0')
 		{
 			if (s1[i] == set[j])
+			{
 				start++;
+				break ;
+			}
 			j++;
 		}
 		if (start == stop)
@@ -78,7 +54,10 @@ int	trim_end(const char *s1, const char *set, int end)
 		while (set[i] != '\0')
 		{
 			if (s1[end] == set[i])
+			{
 				end--;
+				break ;
+			}
 			i++;
 		}
 		if (end == stop)
@@ -91,21 +70,30 @@ char	*ft_strtrim(const char *s1, const char *set)
 {
 	int		start;
 	int		end;
-//	char	*s2;
-//	int		i;
+	char	*s2;
+	int		i;
 
-	set = trim_set(set, strlen(set));
 	start = trim_start(s1, set);
 	end = trim_end(s1, set, ft_strlen(s1));
-	printf("start: %d\nend: %d", start, end);
-	return (0);
+	s2 = malloc(((end - start) + 2) * sizeof(char));
+	if (!s2 || !s1 || !set)
+		return (NULL);
+	i = 0;
+	while (start <= end)
+	{
+		s2[i] = s1[start];
+		i++;
+		start++;
+	}
+	s2[i] = '\0';
+	return (s2);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	const char	s1[] = "oppppoooperlskaooossvndspppoopopo";
 	const char	set[] = "oppoo";
 
-	ft_strtrim(s1, set);
+	printf("%s", ft_strtrim(s1, set));
 	return (0);
-}
+}*/

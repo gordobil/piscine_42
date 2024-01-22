@@ -6,7 +6,7 @@
 #    By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/15 16:12:44 by ngordobi          #+#    #+#              #
-#    Updated: 2024/01/19 11:41:04 by ngordobi         ###   ########.fr        #
+#    Updated: 2024/01/22 13:32:26 by ngordobi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SOURCES = ft_atoi.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c\
 		  ft_memmove.c ft_toupper.c ft_tolower.c ft_memchr.c ft_memcmp.c\
 		  ft_bzero.c ft_memmove.c ft_calloc.c ft_strdup.c ft_substr.c\
 		  ft_strjoin.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c\
-		  ft_putnbr_fd.c ft_itoa.c ft_strtrim.c
+		  ft_putnbr_fd.c ft_itoa.c ft_strtrim.c ft_strmapi.c ft_striteri.c
 OBJECTS = $(SOURCES:.c=.o)
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:59:40 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/19 11:41:58 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:05:11 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,7 @@ void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 char		*ft_itoa(int n);
 char		*ft_strtrim(const char *s1, const char *set);
+char		*ft_strmapi(const char *s, char (*f)(unsigned int, char));
+void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 #endif
