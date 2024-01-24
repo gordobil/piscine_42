@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 19:57:26 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/17 14:08:47 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:56:20 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,10 @@ char	*ft_itoa(int n)
 {
 	char	*s;
 	int		len;
-	int		end;
 	long	nb;
 
 	len = nlen(n);
 	s = malloc((len + 1) * sizeof(char));
-	end = len;
-	len--;
 	nb = n;
 	if (s == NULL)
 		return (NULL);
@@ -51,23 +48,23 @@ char	*ft_itoa(int n)
 		s[0] = '-';
 		nb = nb * -1;
 	}
-	if (nb >= 0)
+	s[len] = '\0';
+	len--;
+	while (len >= 0)
 	{
-		while (len != 0)
-		{
-			s[len] = (nb % 10) + '0';
-			len--;
-			nb = nb / 10;
-		}
+		if (s[len] == '-')
+			break ;
+		s[len] = (nb % 10) + '0';
+		len--;
+		nb = nb / 10;
 	}
-	if (s[0] != '-')
-		s[len] = nb + '0';
-	s[end] = '\0';
 	return (s);
 }
 
 /*int	main(void)
 {
-	printf("------------------------\n%s", ft_itoa(-2147483648));
+	char *str = ft_itoa(42);
+	printf("%s\n", ft_itoa(42));
+	printf("%c %c %c\n", str[0], str[1], str[2]);
 	return (0);
 }*/

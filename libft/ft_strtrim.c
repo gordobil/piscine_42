@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 19:46:46 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/22 13:41:26 by ngordobi         ###   ########.fr       */
+/*   Updated: 2019/10/01 02:01:00 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,31 +68,22 @@ int	trim_end(const char *s1, const char *set, int end)
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	int		start;
-	int		end;
+	size_t	start;
+	size_t	end;
 	char	*s2;
-	int		i;
 
+	if (s1[0] == '\0' || !s1 || !set)
+		return (ft_strdup(""));
 	start = trim_start(s1, set);
 	end = trim_end(s1, set, ft_strlen(s1));
-	s2 = malloc(((end - start) + 2) * sizeof(char));
-	if (!s2 || !s1 || !set)
-		return (NULL);
-	i = 0;
-	while (start <= end)
-	{
-		s2[i] = s1[start];
-		i++;
-		start++;
-	}
-	s2[i] = '\0';
+	s2 = ft_substr(s1, start, end - start + 1);
 	return (s2);
 }
 
 /*int	main(void)
 {
 	const char	s1[] = "oppppoooperlskaooossvndspppoopopo";
-	const char	set[] = "oppoo";
+	const char	set[] = "opoppo";
 
 	printf("%s", ft_strtrim(s1, set));
 	return (0);
