@@ -6,13 +6,103 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:50:19 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/24 13:46:27 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:14:44 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char **ft_split(const char *s, char c)
+int	w_count(const char *s, char c)
 {
+	int	i;
+	int	count;
 
+	i = 0;
+	while (s[i] == c)
+		i++;
+	count = 0;
+	if (s[i] != '\0')
+		count = 1;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
+			count++;
+		i++;
+	}
+	return (count);
 }
+
+int	char_count(const char *s, char c, int word_c)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] != c)
+			count++;
+		i++;
+	}
+	count = count + word_c++;
+	return (count);
+}
+
+int	w_len(const char *s, char c, int j)
+{
+	int	count;
+
+	count = 0;
+	while (s[j] == c)
+		j++;
+	while (s[j] != c && s[j] != '\0')
+	{
+		count++;
+		j++;
+	}
+	return (count);
+}
+
+int	w_start(const char *s, char c, int j, int word_l)
+{
+	j = j + word_l;
+	while (s[j] == c)
+		j++;
+	return (j);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	int		word_c;
+	int		word_l;
+	int		i;
+	int		j;
+	char	**matrix;
+
+	word_c = w_count(s, c);
+	j = char_count(s, c, word_c);
+	matrix = (char **)malloc(sizeof(char *) * j);
+	i = 0;
+	j = 0;
+	word_l = 0;
+	while (i < word_c)
+	{
+		j = w_start(s, c, j, word_l);
+		word_l = w_len(s, c, j);
+		matrix[i] = ft_substr(s, j, word_l);
+//		printf("i = %d   j = %d   word length = %d   -->%s\n", i, j, word_l, matrix[i]);
+		i++;
+	}
+	matrix[i] = ft_strdup("");
+//	printf("i = %d  -->%s\n", i, matrix[i]);
+	return (matrix);
+}
+
+/*int	main(void)
+{
+	const char	s[] = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse";
+	char		c = ' ';
+	ft_split(s, c);
+	return (0);
+}*/
