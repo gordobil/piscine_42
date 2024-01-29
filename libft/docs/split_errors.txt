@@ -1,0 +1,106 @@
+
+
+
+
+
+
+Error: TOO_MANY_LINES       (line: 112, col:   1):	Function has more than 25 lines
+
+
+
+
+
+
+
+
+
+
+✔ Executing: make fclean all bonus
+ℹ Executing: libft-war-machine (https://github.com/y3ll0w42/libft-war-machine)
+
+FUNCTION         TESTS                RESULT
+ft_split         A✓✓✓✓A               KO
+
+Abort: A  Bus error: B  Segmentation fault: S  Timeout: T
+
+More information in: /Users/ngordobi/francinette/temp/libft/war-machine/deepthought
+
+Errors in split: /Users/ngordobi/francinette/temp/libft/war-machine/tests/Part2_functions/ft_split
+Test 1:
+    if (!(tabstr = ft_split("          ", ' ')))
+        ft_print_result("NULL");
+    else
+    {
+        while (tabstr[i] != NULL)
+        {
+            ft_print_result(tabstr[i]);
+            write(1, "\n", 1);
+            i++;
+        }
+    }
+Expected (cat -e test01.output):
+
+Your result (cat -e user_output_test01):
+
+Test 6:
+    if (!(tabstr = ft_split("", 'z')))
+        ft_print_result("NULL");
+    else
+        if (!tabstr[0])
+            ft_print_result("ok\n");
+Expected (cat -e test06.output):
+ok$
+
+Your result (cat -e user_output_test06):
+
+✔ Compiling tests: libftTester (https://github.com/Tripouille/libftTester)
+ℹ Testing:
+ft_split	: 1.MKO 2.OK 3.MOK 4.OK 5.MOK 6.OK 7.SIGSEGV
+
+MKO: test about your malloc size (this shouldn't be tested by moulinette)
+
+Errors in:
+
+For /Users/ngordobi/francinette/tests/libft/Tripouille/tests/ft_split_test.cpp:
+MKO 26: 	/* 1 */ mcheck(tab, sizeof(char *) * 3);
+SIGSEGV 38: 	/* 7 */ check(!strcmp(tab[0], "tripouille"));
+
+✔ Compiling tests: libft-unit-test (https://github.com/alelievr/libft-unit-test)
+ℹ Testing:
+ft_split        : [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK]
+
+✔ Compiling tests: fsoares (my own)
+ℹ Testing:
+ft_split        : 5.KO Abort
+
+Errors found:
+For ft_split, in /Users/ngordobi/francinette/tests/libft/fsoares/test_split.c:
+
+Error in test 5: ft_split("", 97:'a'): Memory problems!
+     in sigabort utils.c:58:1
+     in ft_split ft_split.c:109:17
+     in test_single_split test_split.c:59:9
+     in test_split test_split.c:86:8
+     in main test_split.c:101:2
+
+=================================================================
+==28349==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x602000000190 at pc 0x000102026da8 bp
+0x7ffeedbe2700 sp 0x7ffeedbe26f8
+WRITE of size 8 at 0x602000000190 thread T0
+    #0 0x102026da7 in ft_split ft_split.c:109
+    #1 0x10201fda9 in test_single_split test_split.c:59
+    #2 0x102020094 in test_split test_split.c:86
+    #3 0x10202026d in main test_split.c:101
+    #4 0x7fff70b7ccc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
+
+0x602000000191 is located 0 bytes to the right of 1-byte region [0x602000000190,0x602000000191)
+allocated by thread T0 here:
+    #0 0x10562017d in wrap_malloc+0x9d (libclang_rt.asan_osx_dynamic.dylib:x86_64h+0x4917d)
+    #1 0x10202038c in malloc malloc_mock.c:65
+    #2 0x102026be0 in ft_split ft_split.c:89
+    #3 0x10201fda9 in test_single_split test_split.c:59
+    #4 0x102020094 in test_split test_split.c:86
+    #5 0x10202026d in main test_split.c:101
+    #6 0x7fff70b7ccc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow ft_split.c:109 in ft_split
