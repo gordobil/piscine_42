@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:59:40 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/26 17:12:06 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/01/28 18:14:19 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,6 @@ void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstclear(t_list **lst, void (*del)(void *));
-//t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

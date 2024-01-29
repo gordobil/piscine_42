@@ -6,7 +6,7 @@
 #    By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/15 16:12:44 by ngordobi          #+#    #+#              #
-#    Updated: 2024/01/26 16:51:11 by ngordobi         ###   ########.fr        #
+#    Updated: 2024/01/28 18:14:41 by ngordobi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SOURCES = ft_atoi.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 
 BONUS_SOURCES = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 				ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstiter_bonus.c \
-				ft_lstdelone_bonus.c ft_lstclear_bonus.c \
+				ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstmap_bonus.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 BONUS_OBJECTS = $(BONUS_SOURCES:.c=.o)
