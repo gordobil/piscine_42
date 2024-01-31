@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:50:19 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/29 15:16:56 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/01/31 23:43:05 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	w_count(const char *s, char c)
 	int	count;
 
 	if (c == '\0')
-		return (0);
+		return (1);
 	i = 0;
 	while (s[i] == c)
 		i++;
@@ -34,20 +34,21 @@ int	w_count(const char *s, char c)
 	return (count);
 }
 
-int	char_count(const char *s, char c, int word_c)
+int	char_count(const char *s, int word_c)
 {
 	int	i;
 	int	count;
 
 	i = 0;
 	count = 0;
+	if (s[0] == '\0')
+		return (1);
 	while (s[i] != '\0')
 	{
-		if (s[i] != c)
-			count++;
+		count++;
 		i++;
 	}
-	count = count + word_c++;
+	count = count + word_c;
 	return (count);
 }
 
@@ -56,6 +57,8 @@ int	w_len(const char *s, char c, int j)
 	int	count;
 
 	count = 0;
+	if (s[0] == '\0')
+		return (1);
 	while (s[j] == c)
 		j++;
 	while (s[j] != c && s[j] != '\0')
@@ -69,6 +72,8 @@ int	w_len(const char *s, char c, int j)
 int	w_start(const char *s, char c, int j, int word_l)
 {
 	j = j + word_l;
+	if (s[j] == '\0')
+		return (j);
 	while (s[j] == c)
 		j++;
 	return (j);
@@ -85,8 +90,8 @@ char	**ft_split(const char *s, char c)
 	if (!s)
 		return (NULL);
 	word_c = w_count(s, c);
-	j = char_count(s, c, word_c);
-	matrix = (char **)malloc(sizeof(char *) * j);
+	j = char_count(s, word_c);
+	matrix = malloc(sizeof(char *) * (j + 1));
 	if (!matrix)
 		return (NULL);
 	i = 0;
@@ -96,25 +101,32 @@ char	**ft_split(const char *s, char c)
 	{
 		j = w_start(s, c, j, word_l);
 		word_l = w_len(s, c, j);
-		matrix[i] = ft_substr(s, j, word_l);
+		if (s[0] == '\0')
+		{
+			matrix[0] = '\0';
+			i = 1;
+			break ;
+		}
+		else
+			matrix[i] = ft_substr(s, j, word_l);
 		if (!matrix[i])
 		{
-			while (i--)
+			while (i-- >= 0)
 				free(matrix[i]);
 			break ;
 		}
-//		printf("i = %d   j = %d   word length = %d   -->%s\n", i, j, word_l, matrix[i]);
+//				printf("i = %d   j = %d   word length = %d   -->%s\n", i, j, word_l, matrix[i]);
 		i++;
 	}
-	matrix[word_c] = NULL;
-//	printf("i = %d  -->%s\n", i, matrix[i]);
+	matrix[i] = '\0';
+//		printf("i = %d  -->%s\n", i, matrix[i]);
 	return (matrix);
 }
 
 /*int	main(void)
 {
-	const char	s[] = "";
-	char		c = 'z';
+	const char	s[] = "\0aa\0bbb";
+	char		c = '\0';
 	ft_split(s, c);
 	return (0);
 }*/
