@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ok_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:50:19 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/02 13:04:37 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:01:23 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,3 +114,7 @@ char	**ft_split(const char *s, char c)
 	ft_split(s, c);
 	return (0);
 }*/
+
+
+//	printf("i = %d  -->%s\n", i, matrix[i]);
+//		printf("i = %d   j = %d   word length = %d   -->%s\n", i, j, word_l, matrix[i]);

@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 19:57:26 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/01/24 12:56:20 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/02/02 14:25:54 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,29 @@ int	nlen(long n)
 	return (i);
 }
 
+char	*ret(int len, long nb, char *s)
+{
+	if (nb == 0)
+		s[0] = '0';
+	else if (nb == 42)
+	{
+		s[0] = '4';
+		s[1] = '2';
+	}
+	else
+	{
+		while (len >= 0)
+		{
+			if (s[len] == '-')
+				break ;
+			s[len] = (nb % 10) + '0';
+			len--;
+			nb = nb / 10;
+		}
+	}
+	return (s);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*s;
@@ -50,15 +73,7 @@ char	*ft_itoa(int n)
 	}
 	s[len] = '\0';
 	len--;
-	while (len >= 0)
-	{
-		if (s[len] == '-')
-			break ;
-		s[len] = (nb % 10) + '0';
-		len--;
-		nb = nb / 10;
-	}
-	return (s);
+	return (ret(len, nb, s));
 }
 
 /*int	main(void)
