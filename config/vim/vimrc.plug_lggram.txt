@@ -1,9 +1,0 @@
-call plug#begin('~/.vim/plugged')
-
-Plug 'sheerun/vim-polyglot'
-Plug 'jiangmiao/auto-pairs'
-Plug 'morhetz/gruvbox'
-Plug 'scrooloose/nerdtree'
-Plug 'xavierd/clang_complete'
-
-call plug#end()

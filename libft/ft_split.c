@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:50:19 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/02 13:04:37 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/02/02 17:38:23 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	w_count(const char *s, char c)
 			count++;
 		i++;
 	}
+	printf("words: %d\n", count);
 	return (count);
 }
 
@@ -48,6 +49,7 @@ int	w_len(const char *s, char c, int j)
 		count++;
 		j++;
 	}
+	printf("length: %d\n", count);
 	return (count);
 }
 
@@ -58,6 +60,7 @@ int	w_start(const char *s, char c, int j, int word_l)
 		return (j);
 	while (s[j] == c)
 		j++;
+	printf("start: %d\n", j);
 	return (j);
 }
 
@@ -107,10 +110,17 @@ char	**ft_split(const char *s, char c)
 	return (matrix);
 }
 
-/*int	main(void)
+int	main(void)
 {
-	const char	s[] = "\0aa\0bbb";
-	char		c = '\0';
-	ft_split(s, c);
+	const char	s[] = "hola";
+	char		c = ' ';
+	char		**matrix = ft_split(s, c);
+	int			i = 0;
+
+	while (matrix)
+	{
+		printf("%s\n", matrix[i]);
+		i++;
+	}
 	return (0);
-}*/
+}
