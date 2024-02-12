@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 14:15:13 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/12 12:02:10 by ngordobi         ###   ########.fr       */
+/*   Created: 2023/11/01 14:22:51 by ngordobi          #+#    #+#             */
+/*   Updated: 2024/02/12 12:50:46 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h" 
+#include "ft_printf.h"
 
-int	ft_putstr(char *str, int count)
+int	ft_puthex(unsigned int n, int count, char arg_format)
 {
-	int	i;
-
-	i = 0;
-	if (str == NULL)
-		return (0);
-	while (str[i] != '\0')
+	if (n >= 16)
 	{
-		count = ft_putchar(str[i], count);
-		i++;
+		count = ft_puthex(n / 16, count, arg_format);
+		count = ft_puthex(n % 16, count, arg_format);
+	}
+	else
+	{
+		if (n <= 9)
+			count = ft_putchar(n + '0', count);
+		else
+		{
+			if (arg_format == 'X')
+				count = ft_putchar(n - 10 + 'A', count);
+			else if (arg_format == 'x')
+				count = ft_putchar(n - 10 + 'a', count);
+		}
 	}
 	return (count);
 }

@@ -6,7 +6,7 @@
 #    By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/15 16:12:44 by ngordobi          #+#    #+#              #
-#    Updated: 2024/02/07 17:01:45 by ngordobi         ###   ########.fr        #
+#    Updated: 2024/02/12 12:16:55 by ngordobi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ CCFLAGS = -Wall -Wextra -Werror
 REMOVE = rm -f
 LIBRARY = ar rc
 
-SOURCES = ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c \
+SOURCES = ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putunsigned.c \
+		  ft_puthex.c ft_putpointer.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 

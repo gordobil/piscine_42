@@ -3,37 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 11:07:18 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/09 14:32:52 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/02/12 12:53:17 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	format(va_list lst, const char *arg, int count)
+int	format(va_list list, const char *arg, int count)
 {
 	if (*arg == 'c')
-		count = ft_putchar(va_arg(lst, int), count);
+		count = ft_putchar(va_arg(list, int), count);
 	else if (*arg == 's')
-		count = ft_putstr(va_arg(lst, char *), count);
-//	else if (*first_arg == 'p')
+		count = ft_putstr(va_arg(list, char *), count);
+	else if (*arg == 'p')
+		count = ft_putpointer(va_arg(list, unsigned int), count);
 	else if (*arg == 'd' || *arg == 'i')
-		count = ft_putnbr(va_arg(lst, int), count);
-//	else if (*first_arg == 'u')
-//	else if (*first_arg == 'x')
-//	else if (*first_arg == 'X')
+		count = ft_putnbr(va_arg(list, int), count);
+	else if (*arg == 'u')
+		count = ft_putunsigned(va_arg(list, unsigned int), count);
+	else if (*arg == 'x' || *arg == 'X')
+		count = ft_puthex(va_arg(list, unsigned int), count, *arg);
 	else if (*arg == '%')
 		count = ft_putchar('%', count);
-//	printf(": %d\n", count);
 	return (count);
 }
 
 int	ft_printf(const char *first_arg, ...)
 {
 	va_list	list;
-	int count;
+	int		count;
 
 	va_start(list, first_arg);
 	count = 0;
@@ -54,10 +55,10 @@ int	ft_printf(const char *first_arg, ...)
 
 /*int	main(void)
 {
-	int		n = -145;
-	char	c = 'c';
-	char	*s = "hola";
+	unsigned int	n = 0x5BFC;
+	char			c = 'c';
+	char			*s = "hola";
 
-	printf("final count: %d\n", ft_printf("%d %c %s %%, agur\n", n, c, s));
+	printf("final count: %d\n", ft_printf("%p\n", s));
 	return (0);
 }*/

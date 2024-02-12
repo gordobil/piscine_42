@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:59:40 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/09 14:08:26 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/02/12 12:21:15 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@
 # include <stdlib.h>
 # include <stdarg.h>
 
-int	ft_printf(const char *, ...);
+int	ft_printf(const char *arg, ...);
 int	ft_putchar(char c, int count);
 int	ft_putstr(char *str, int count);
 int	ft_putnbr(int n, int count);
+int	ft_putunsigned(unsigned int n, int count);
+int	ft_puthex(unsigned int n, int count, char arg_format);
+int	ft_putpointer(unsigned int p, int count);
 
 #endif

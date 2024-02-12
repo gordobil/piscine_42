@@ -1,4 +1,4 @@
-#include <stdarg.h>
+/*#include <stdarg.h>
 
 char *mi_dtoa(double d, char *NumStr)
 {
@@ -82,4 +82,4 @@ int main(void) {
                      clave, categoria, nombre, sueldo, edad);
 
     return (0);
-}
+}*/

@@ -6,14 +6,14 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 12:01:38 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/09 14:50:45 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/02/12 12:22:59 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putchar(char c, int count)
+int	ft_putchar(char c, int count)
 {
-    write (1, &c, 1);
-    return (count + 1);
+	write (1, &c, 1);
+	return (count + 1);
 }
