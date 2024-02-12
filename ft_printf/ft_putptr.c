@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putpointer.c                                    :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:11:17 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/12 12:17:45 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/02/12 14:38:25 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putpointer(unsigned int p, int count)
+int	ft_putptr(unsigned long p, int count)
 {
 	count = ft_putstr("0x", count);
-	count = ft_puthex(p, count, 'x');
+	if (p == 0)
+		count = ft_putchar('0', count);
+	else
+		count = ft_puthex(p, count, 'x');
 	return (count);
 }

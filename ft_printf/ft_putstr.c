@@ -18,7 +18,10 @@ int	ft_putstr(char *str, int count)
 
 	i = 0;
 	if (str == NULL)
-		return (0);
+	{
+		ft_putstr("(null)", count);
+		return (count + 6);
+	}
 	while (str[i] != '\0')
 	{
 		count = ft_putchar(str[i], count);

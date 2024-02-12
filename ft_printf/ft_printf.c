@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 11:07:18 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/12 12:53:17 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/02/12 14:38:34 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	format(va_list list, const char *arg, int count)
 	else if (*arg == 's')
 		count = ft_putstr(va_arg(list, char *), count);
 	else if (*arg == 'p')
-		count = ft_putpointer(va_arg(list, unsigned int), count);
+		count = ft_putptr(va_arg(list, unsigned int), count);
 	else if (*arg == 'd' || *arg == 'i')
 		count = ft_putnbr(va_arg(list, int), count);
 	else if (*arg == 'u')
-		count = ft_putunsigned(va_arg(list, unsigned int), count);
+		count = ft_putunbr(va_arg(list, unsigned int), count);
 	else if (*arg == 'x' || *arg == 'X')
 		count = ft_puthex(va_arg(list, unsigned int), count, *arg);
 	else if (*arg == '%')
@@ -53,12 +53,13 @@ int	ft_printf(const char *first_arg, ...)
 	return (count);
 }
 
-/*int	main(void)
+/* int	main(void)
 {
 	unsigned int	n = 0x5BFC;
 	char			c = 'c';
 	char			*s = "hola";
 
-	printf("final count: %d\n", ft_printf("%p\n", s));
+	printf("final count: %d\n", ft_printf(" %p %p ", 4294967294, -1));
 	return (0);
-}*/
+}
+*/

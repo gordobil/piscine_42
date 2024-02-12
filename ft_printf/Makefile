@@ -17,8 +17,8 @@ CCFLAGS = -Wall -Wextra -Werror
 REMOVE = rm -f
 LIBRARY = ar rc
 
-SOURCES = ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putunsigned.c \
-		  ft_puthex.c ft_putpointer.c \
+SOURCES = ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putunbr.c \
+		  ft_puthex.c ft_putptr.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 

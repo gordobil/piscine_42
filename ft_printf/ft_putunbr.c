@@ -12,12 +12,12 @@
 
 #include "ft_printf.h"
 
-int	ft_putunsigned(unsigned int n, int count)
+int	ft_putunbr(unsigned int n, int count)
 {
 	if (n >= 10)
 	{
-		count = ft_putunsigned(n / 10, count);
-		count = ft_putunsigned(n % 10, count);
+		count = ft_putunbr(n / 10, count);
+		count = ft_putunbr(n % 10, count);
 	}
 	else
 		count = ft_putchar(n + '0', count);
