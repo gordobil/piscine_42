@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 11:07:18 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/12 14:38:34 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:47:40 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	format(va_list list, const char *arg, int count)
 	else if (*arg == 's')
 		count = ft_putstr(va_arg(list, char *), count);
 	else if (*arg == 'p')
-		count = ft_putptr(va_arg(list, unsigned int), count);
+		count = ft_putptr(va_arg(list, unsigned long), count);
 	else if (*arg == 'd' || *arg == 'i')
 		count = ft_putnbr(va_arg(list, int), count);
 	else if (*arg == 'u')
@@ -53,13 +53,18 @@ int	ft_printf(const char *first_arg, ...)
 	return (count);
 }
 
-/* int	main(void)
+/*int	main(void)
 {
-	unsigned int	n = 0x5BFC;
+	unsigned long	n = 1234;
 	char			c = 'c';
 	char			*s = "hola";
+	int				pf;
 
-	printf("final count: %d\n", ft_printf(" %p %p ", 4294967294, -1));
+	printf("\nFT_PRINTF\n--------------\n");
+	pf = ft_printf("-%p/", &n);
+	printf("\nchar count: %d\n", pf - 2);
+	printf("\nPRINTF\n--------------\n");
+	pf = printf("-%p/", &n);
+	printf("\nchar count: %d\n", pf - 2);
 	return (0);
-}
-*/
+}*/
