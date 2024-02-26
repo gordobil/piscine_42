@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:47 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/26 16:10:04 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:28:28 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,3 +81,15 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	s3[i] = '\0';
 	return (s3);
 }
+
+/*int	main(void)
+{
+	char	*s = "hola";
+	char	c = 'a';
+	char	*p;
+
+	ft_putstr(s);
+	p = find_c(s, c);
+	printf("\n%s", p);
+	return (0);
+}*/
