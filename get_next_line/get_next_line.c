@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:35 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/26 16:17:00 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:30:06 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*get_next_line(int fd)
 	return (text);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	int		fd;
 	char	*gnl;
@@ -46,4 +46,4 @@ int	main(void)
 	gnl = get_next_line(fd);
 	ft_putstr(gnl);
 	return (0);
-}
+}*/
