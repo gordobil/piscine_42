@@ -6,34 +6,35 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:35 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/26 14:22:54 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:17:00 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*readtxt(int fd, int text)
+char	*readtxt(int fd, char *text)
 {
-	char	*buff;
+	char	*buffer;
 	int		i;
 
-	i = 0;
-	while ()
+	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	while (ft_find_c(text, '\n') == NULL)
 	{
-		i = read(fd, buff, BUFFER_SIZE);
-
+		i = read(fd, buffer, BUFFER_SIZE);
+		buffer[i] = '\0';
+		text = ft_strjoin(text, buffer);
 	}
+	free(buffer);
+	return (text);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*buf;
-	char		line;
+	static char	*text;
+	char		*buffer;
 
-	if (fd < 0)
-		return (NULL);
-	readtxt(fd);
-//	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	text = readtxt(fd, text);
+	return (text);
 }
 
 int	main(void)

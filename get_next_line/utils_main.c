@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 11:36:13 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/26 16:14:30 by ngordobi         ###   ########.fr       */
+/*   Created: 2024/02/26 15:35:47 by ngordobi          #+#    #+#             */
+/*   Updated: 2024/02/26 15:40:45 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <fcntl.h>
+#include "get_next_line.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
-# endif
+int	main(void)
+{
+	char	*s = "hola";
+	char	c = 'a';
+	char	*p;
 
-char	*get_next_line(int fd);
-int		ft_putstr(char *str);
-char	*ft_find_c(char *s, char c);
-int		ft_strlen(const char *s);
-char	*ft_strjoin(const char *s1, const char *s2);
-
-#endif
+	ft_putstr(s);
+	p = find_c(s, c);
+	printf("\n%s", p);
+	return (0);
+}
