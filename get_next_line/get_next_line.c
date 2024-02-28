@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:35 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/26 16:30:06 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/02/28 11:52:11 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ char	*readtxt(int fd, char *text)
 	char	*buffer;
 	int		i;
 
+	i = 0;
 	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	while (ft_find_c(text, '\n') == NULL)
 	{
@@ -37,7 +38,7 @@ char	*get_next_line(int fd)
 	return (text);
 }
 
-/*int	main(void)
+int	main(void)
 {
 	int		fd;
 	char	*gnl;
@@ -46,4 +47,4 @@ char	*get_next_line(int fd)
 	gnl = get_next_line(fd);
 	ft_putstr(gnl);
 	return (0);
-}*/
+}
