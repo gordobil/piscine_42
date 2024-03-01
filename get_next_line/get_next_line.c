@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:35 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/03/01 12:48:01 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/03/01 13:39:19 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ char	*get_next_line(int fd)
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
+	buffer = 0;
 	while ((buffer[i] != '\n') && (buffer[i] != '\0') && (i < BUFFER_SIZE))
 	{
 		if (read(fd, &buffer[i], 1) < 0)
@@ -46,8 +47,10 @@ int	main(void)
 	int		fd;
 	char	*gnl;
 
-	fd = open("texto.txt", O_RDONLY);
+	fd = open("text.txt", O_RDONLY);
+	if(fd <0)
+		printf("hola manola");
 	gnl = get_next_line(fd);
-	ft_putstr(gnl);
+	printf("%s", gnl);
 	return (0);
 }

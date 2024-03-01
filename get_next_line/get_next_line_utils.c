@@ -6,29 +6,11 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:47 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/03/01 12:14:21 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/03/01 13:11:38 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-int	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str == NULL)
-	{
-		ft_putstr(NULL);
-		return (0);
-	}
-	while (str[i] != '\0')
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-	return (0);
-}
 
 size_t	ft_strlen(const char *s)
 {

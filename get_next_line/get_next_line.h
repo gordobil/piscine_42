@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:13 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/03/01 12:14:46 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/03/01 13:11:56 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # endif
 
 char	*get_next_line(int fd);
-int		ft_putstr(char *str);
 char	*ft_find_c(char *s, char c);
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(const char *s1, const char *s2);
