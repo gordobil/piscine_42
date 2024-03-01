@@ -3,39 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:35 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/28 21:14:31 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/03/01 12:48:01 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/*char	*readtxt(int fd, char *text)
-{
-	char	*buffer;
-	int		i;
-
-	i = 0;
-	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	while (ft_find_c(text, '\n') == NULL)
-	{
-		i = read(fd, buffer, BUFFER_SIZE);
-		buffer[i] = '\0';
-		text = ft_strjoin(text, buffer);
-	}
-	free(buffer);
-	return (text);
-}*/
-
 char	*get_next_line(int fd)
 {
 	static char	*text;
 	char		*buffer;
+	int			i;
 
-	text = readtxt(fd, text);
-	return (text);
+	i = 0;
+	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buffer)
+		return (NULL);
+	while ((buffer[i] != '\n') && (buffer[i] != '\0') && (i < BUFFER_SIZE))
+	{
+		if (read(fd, &buffer[i], 1) < 0)
+			return (NULL);
+		i++;
+	}
+	if (buffer[i] == '\n' || buffer[i] == '\0')
+	{
+		buffer[i] = '\0';
+		text = ft_strjoin(text, buffer);
+	}
+	else
+	{
+		text = ft_strjoin(text, buffer);
+		text = get_next_line(fd);
+	}
+	return (buffer);
 }
 
 int	main(void)
