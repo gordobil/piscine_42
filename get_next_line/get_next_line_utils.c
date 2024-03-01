@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:47 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/26 16:28:28 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/02/28 21:13:49 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,6 @@ int	ft_putstr(char *str)
 		i++;
 	}
 	return (0);
-}
-
-char	*ft_find_c(char *s, char c)
-{
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (NULL);
-	while (s[i] != c && s[i])
-		i++;
-	if (s[i] == c)
-		return (&s[i]);
-	return (NULL);
 }
 
 int	ft_strlen(const char *s)
@@ -89,7 +75,6 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	char	*p;
 
 	ft_putstr(s);
-	p = find_c(s, c);
 	printf("\n%s", p);
 	return (0);
 }*/

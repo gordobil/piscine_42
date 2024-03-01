@@ -6,13 +6,13 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:35 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/02/28 11:52:11 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/02/28 21:14:31 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*readtxt(int fd, char *text)
+/*char	*readtxt(int fd, char *text)
 {
 	char	*buffer;
 	int		i;
@@ -27,7 +27,7 @@ char	*readtxt(int fd, char *text)
 	}
 	free(buffer);
 	return (text);
-}
+}*/
 
 char	*get_next_line(int fd)
 {
