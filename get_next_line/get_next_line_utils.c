@@ -6,11 +6,36 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:47 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/03/01 13:11:38 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/03/04 12:21:16 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	char	*str;
+
+	str = malloc(count * size);
+	if (str == NULL)
+		return (NULL);
+	return (ft_memset(str, 0, count * size));
+}
+
+void	*ft_memset(void *b, int c, size_t len)
+{
+	size_t			i;
+	unsigned char	*s;
+
+	i = 0;
+	s = b;
+	while (i < len)
+	{
+		s[i] = (unsigned char)c;
+		i++;
+	}
+	return (b);
+}
 
 size_t	ft_strlen(const char *s)
 {
