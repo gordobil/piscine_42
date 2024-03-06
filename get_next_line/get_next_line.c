@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:35 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/03/04 14:27:38 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:15:51 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ char	*read_file(int fd, char *buff)
 		free(buffer);
 		return (NULL);
 	}
-	read_bytes = read(fd, buffer, BUFFER_SIZE);
+	read_bytes = read(fd, buffer, BUFFER_SIZE - ft_strlen(buff));
 	if (read_bytes <= 0)
 		return (NULL);
-	buff = ft_strjoin(buff, buffer);
+	buff = ft_strdup(buffer);
 	free(buffer);
 	return (buff);
 }
@@ -48,7 +48,7 @@ char	*line_stop(char *buffer)
 		line[i] = buffer[i];
 		i++;
 	}
-	if (buffer[i] && buffer[i] != '\n')
+	if (buffer[i] && buffer[i] == '\n')
 		line[i] = '\n';
 	return (line);
 }
@@ -107,11 +107,12 @@ char	*get_next_line(int fd)
 		line = get_next_line(fd);
 		if (line == NULL)
 		{
-			printf("NULL\n");
+//			printf("\nNULL\n");
 			break ;
 		}
 		line_count++;
-		printf("[%d]: %s\n", line_count, line);
+		printf("%s", line);
+//		printf("[%d]: %s\n", line_count, line);
 		free(line);
 		line = NULL;
 	}

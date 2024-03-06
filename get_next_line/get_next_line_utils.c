@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:47 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/03/04 12:21:16 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:15:41 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,39 +49,33 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strjoin(const char *s1, const char *s2)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	*s3;
-	size_t	i;
-	size_t	j;
+	char		*dst2;
+	const char	*src2;
 
-	s3 = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!s3)
+	dst2 = (char *)dst;
+	src2 = (const char *)src;
+	if (src == NULL && dst == NULL)
 		return (NULL);
-	i = 0;
-	while (i < ft_strlen(s1))
+	while (n != 0)
 	{
-		s3[i] = s1[i];
-		i++;
+		*dst2 = *src2;
+		dst2++;
+		src2++;
+		n--;
 	}
-	j = 0;
-	while (j < ft_strlen(s2))
-	{
-		s3[i] = s2[j];
-		i++;
-		j++;
-	}
-	s3[i] = '\0';
-	return (s3);
+	return (dst);
 }
 
-/*int	main(void)
+char	*ft_strdup(const char *s1)
 {
-	char	*s = "hola";
-	char	c = 'a';
-	char	*p;
+	char	*s2;
 
-	ft_putstr(s);
-	printf("\n%s", p);
-	return (0);
-}*/
+	s2 = malloc((ft_strlen(s1) + 1) * sizeof(char));
+	if (s2 == NULL)
+		return (NULL);
+	ft_memcpy(s2, s1, ft_strlen(s1));
+	s2[ft_strlen(s1)] = '\0';
+	return (s2);
+}
