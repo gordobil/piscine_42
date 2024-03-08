@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:35 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/03/08 15:14:34 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/03/08 16:35:34 by ngordobi         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "get_next_line.h"
 
@@ -110,7 +110,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-/* int	main(void)
+/*int	main(void)
 {
 	char	*line;
 	int		fd;
@@ -125,12 +125,11 @@ char	*get_next_line(int fd)
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		printf("[%d] %s", count, line);
+		printf("[Linea numero %d] %s", count, line);
 		count++;
 		free(line);
 		line = NULL;
 	}
-	printf("\nfd: %d", fd);
 	close(fd);
 	return (0);
-} */
+}*/
