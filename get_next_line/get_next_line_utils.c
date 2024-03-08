@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:47 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/03/06 15:51:26 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/03/08 14:30:19 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,6 @@ size_t	ft_strlen(const char *s)
 		i++;
 	}
 	return (i);
-}
-
-char	*ft_strrchr(const char *s, int c)
-{
-	int		i;
-	char	*s2;
-
-	s2 = (char *)s;
-	i = ft_strlen(s2);
-	while (i >= 0)
-	{
-		if (s2[i] == (unsigned char)c)
-			return (&s2[i]);
-		i--;
-	}
-	return (NULL);
 }
 
 char	*ft_strjoin(const char *s1, const char *s2)

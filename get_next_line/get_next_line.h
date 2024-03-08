@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:13 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/03/06 13:31:18 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/03/08 14:30:02 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ char	*get_next_line(int fd);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memset(void *b, int c, size_t len);
 size_t	ft_strlen(const char *s);
-char	*ft_strrchr(const char *s, int c);
 char	*ft_strjoin(const char *s1, const char *s2);
 
 #endif

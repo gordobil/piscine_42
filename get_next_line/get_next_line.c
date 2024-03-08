@@ -6,40 +6,13 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:35 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/03/06 15:51:23 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/03/08 15:06:54 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*next_line(char *buffer)
-{
-	char	*line;
-	int		i;
-	int		j;
-
-	i = 0;
-	while (buffer[i] && buffer[i] != '\n')
-		i++;
-	if (!buffer[i])
-	{
-		free(buffer);
-		return (NULL);
-	}
-	line = ft_calloc((ft_strlen(buffer) - i + 1), sizeof(char));
-	i++;
-	j = 0;
-	while (buffer[i])
-	{
-		line[j] = buffer[i];
-		i++;
-		j++;
-	}
-	free(buffer);
-	return (line);
-}
-
-char	*line_stop(char *buffer)
+char	*get_line(char	*buffer)
 {
 	char	*line;
 	int		i;
@@ -50,6 +23,8 @@ char	*line_stop(char *buffer)
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
 	line = ft_calloc(i + 2, sizeof(char));
+	if (line == NULL)
+		return (NULL);
 	i = 0;
 	while (buffer[i] && buffer[i] != '\n')
 	{
@@ -61,39 +36,64 @@ char	*line_stop(char *buffer)
 	return (line);
 }
 
-char	*ft_free(char *buff, char *buffer)
+char	*buffer_update(char *buffer)
+{
+	char	*temp_buff;
+	int		i;
+	int		j;
+
+	i = 0;
+	while (buffer[i] != '\0' && buffer[i] != '\n')
+		i++;
+	if (ft_strlen(buffer) == (unsigned long)i)
+	{
+		free(buffer);
+		return (NULL);
+	}
+	temp_buff = ft_calloc((ft_strlen(buffer) - i++), sizeof(char));
+	if (temp_buff == NULL)
+		return (NULL);
+	j = 0;
+	while (buffer[i] != '\0')
+		temp_buff[j++] = buffer[i++];
+	temp_buff[j] = '\0';
+	free (buffer);
+	return (temp_buff);
+}
+
+char	*append(char *buffer, char *temp_buff)
 {
 	char	*temp;
 
-	temp = ft_strjoin(buff, buffer);
-	free(buff);
+	temp = ft_strjoin(buffer, temp_buff);
+	free(buffer);
 	return (temp);
 }
 
-char	*read_file(int fd, char *buff)
+char	*read_text(int fd, char *buffer)
 {
+	char	*temp_buff;
 	int		read_bytes;
-	char	*buffer;
 
-	if (!buff)
-		buff = ft_calloc(1, 1);
-	buffer = ft_calloc (BUFFER_SIZE + 1, sizeof(char));
+	if (!buffer)
+		buffer = ft_calloc(1, 1);
+	temp_buff = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	if (!buffer)
+		return (NULL);
 	read_bytes = 1;
 	while (read_bytes > 0)
 	{
-		read_bytes = read(fd, buffer, BUFFER_SIZE);
+		read_bytes = read(fd, temp_buff, BUFFER_SIZE);
 		if (read_bytes == -1)
 		{
-			free (buffer);
+			free(temp_buff);
 			return (NULL);
 		}
-		buffer[read_bytes] = '\0';
-		buff = ft_free(buff, buffer);
-		if (ft_strrchr(buffer, '\n'))
-			break ;
+		temp_buff[read_bytes] = '\0';
+		buffer = append(buffer, temp_buff);
 	}
-	free(buffer);
-	return (buff);
+	free(temp_buff);
+	return (buffer);
 }
 
 char	*get_next_line(int fd)
@@ -103,34 +103,34 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
-	buffer = read_file(fd, buffer);
+	buffer = read_text(fd, buffer);
 	if (!buffer)
 		return (NULL);
-	line = line_stop(buffer);
-	buffer = next_line(buffer);
+	line = get_line(buffer);
+	buffer = buffer_update(buffer);
 	return (line);
 }
 
-/*int	main(void)
+/* int	main(void)
 {
-	int		fd;
-	int		line_count;
 	char	*line;
+	int		fd;
+	int		count;
 
-	line_count = 0;
 	fd = open("text.txt", O_RDONLY);
 	if (fd == -1)
 		return (1);
+	count = 1;
 	while (fd)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		line_count++;
-		printf("[%d]: %s\n", line_count, line);
+		printf("[%d] %s", count, line);
+		count++;
 		free(line);
 		line = NULL;
 	}
 	close(fd);
 	return (0);
-}*/
+} */

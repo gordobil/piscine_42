@@ -1,11 +1,12 @@
-Lorem Ipsum es simplemente el texto de relleno de las imprentas
-y archivos de texto. Lorem Ipsum ha sido el texto de relleno
-estándar
-de las
-industrias desde el
-año 1500,
-cuando un
-impresor
-(N. del T. persona que se dedica a la imprenta) desconocido usó
-una galería de textos y los mezcló de tal manera que logró hacer
-un libro de textos especimen.
+1. Una función que te lea el numero
+	de caracteres que te pasen.
+2. Una funcion que junte lo k te haya sobrado
+	de la anterior llamada con la nueva lectura.
+3. Ahora una función que te separe todo el
+	string hasta el salto de linea si lo hay
+4. Por ultimo una función que te guarde lo
+	que ha sobrado a partir del salto de linea en
+	el
+	static
+	buffer.
+----------------------------------------------
