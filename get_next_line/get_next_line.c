@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:35 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/03/08 16:35:34 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/03/08 17:39:50 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -90,8 +90,11 @@ char	*read_text(int fd, char *buffer)
 		}
 		temp_buff[read_bytes] = '\0';
 		buffer = append(buffer, temp_buff);
+		if (ft_strrchr(buffer, '\n'))
+			break;
 	}
 	free(temp_buff);
+	printf("\n%s\n", buffer);
 	return (buffer);
 }
 
