@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:35 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/03/08 15:09:22 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/03/08 15:14:34 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,8 @@ char	*buffer_update(char *buffer)
 	if (temp_buff == NULL)
 		return (NULL);
 	j = 0;
-	while (buffer[i] != '\0')
+	while (buffer[i])
 		temp_buff[j++] = buffer[i++];
-	temp_buff[j] = '\0';
 	free (buffer);
 	return (temp_buff);
 }
