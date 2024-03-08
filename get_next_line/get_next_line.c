@@ -6,7 +6,7 @@
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:36:35 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/03/08 15:06:54 by ngordobi         ###   ########.fr       */
+/*   Updated: 2024/03/08 15:09:22 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ char	*get_next_line(int fd)
 		free(line);
 		line = NULL;
 	}
+	printf("\nfd: %d", fd);
 	close(fd);
 	return (0);
 } */
