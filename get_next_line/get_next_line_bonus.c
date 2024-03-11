@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngordobi <ngordobi@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 11:48:21 by ngordobi          #+#    #+#             */
-/*   Updated: 2024/03/11 11:48:21 by ngordobi         ###   ########.fr       */
+/*   Created: 2024/03/11 13:28:39 by ngordobi          #+#    #+#             */
+/*   Updated: 2024/03/11 13:28:39 by ngordobi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*save_line(char	*buffer)
 {
@@ -99,19 +99,19 @@ char	*read_text(int fd, char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer;
+	static char	*buffer[10240];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
-	buffer = read_text(fd, buffer);
-	if (!buffer)
+	buffer[fd] = read_text(fd, buffer[fd]);
+	if (!buffer[fd])
 	{
-		free (buffer);
+		free (buffer[fd]);
 		return (NULL);
 	}
-	line = save_line(buffer);
-	buffer = buffer_update(buffer);
+	line = save_line(buffer[fd]);
+	buffer[fd] = buffer_update(buffer[fd]);
 	return (line);
 }
 
