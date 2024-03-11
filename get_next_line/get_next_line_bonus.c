@@ -20,18 +20,18 @@ char	*save_line(char	*buffer)
 	i = 0;
 	if (!buffer[i])
 		return (NULL);
-	while (buffer[i] && buffer[i] != '\n')
+	while (buffer[i] != '\0' && buffer[i] != '\n')
 		i++;
 	line = ft_calloc(i + 2, sizeof(char));
 	if (!line)
 		return (NULL);
 	i = 0;
-	while (buffer[i] && buffer[i] != '\n')
+	while (buffer[i] != '\0' && buffer[i] != '\n')
 	{
 		line[i] = buffer[i];
 		i++;
 	}
-	if (buffer[i] && buffer[i] == '\n')
+	if (buffer[i] != '\0' && buffer[i] == '\n')
 		line[i++] = '\n';
 	return (line);
 }
@@ -54,7 +54,7 @@ char	*buffer_update(char *buffer)
 	if (!temp_buff)
 		return (NULL);
 	j = 0;
-	while (buffer[i])
+	while (buffer[i] != '\0')
 		temp_buff[j++] = buffer[i++];
 	free (buffer);
 	return (temp_buff);
@@ -88,7 +88,7 @@ char	*read_text(int fd, char *buffer)
 			free(temp_buff);
 			return (NULL);
 		}
-		temp_buff[read_bytes] = 0;
+		temp_buff[read_bytes] = '\0';
 		buffer = append(buffer, temp_buff);
 		if (ft_strchr(buffer, '\n'))
 			break ;
@@ -106,10 +106,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	buffer[fd] = read_text(fd, buffer[fd]);
 	if (!buffer[fd])
-	{
-		free (buffer[fd]);
 		return (NULL);
-	}
 	line = save_line(buffer[fd]);
 	buffer[fd] = buffer_update(buffer[fd]);
 	return (line);
