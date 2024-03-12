@@ -12,7 +12,6 @@
 
 #include "get_next_line_bonus.h"
 
-
 char	*save_line(char	*buffer)
 {
 	char	*line;
@@ -79,24 +78,23 @@ char	*append(char *buffer, char *temp_buff)
 char	*read_text(int fd, char *buffer)
 {
 	char	*temp_buff;
-	int		read_bytes;
+	int		read_chars;
 
 	if (!buffer)
 		buffer = ft_calloc(1, 1);
 	temp_buff = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (!temp_buff)
 		return (NULL);
-	read_bytes = 1;
-	while (read_bytes != 0 && ft_strchr(buffer, '\n') == NULL)
+	read_chars = 1;
+	while (read_chars != 0 && ft_strchr(buffer, '\n') == NULL)
 	{
-		read_bytes = read(fd, temp_buff, BUFFER_SIZE);
-		if (read_bytes < 0)
+		read_chars = read(fd, temp_buff, BUFFER_SIZE);
+		if (read_chars < 0)
 		{
 			free(temp_buff);
-			free(buffer);
-			return (NULL);
+			return (buffer);
 		}
-		temp_buff[read_bytes] = '\0';
+		temp_buff[read_chars] = '\0';
 		buffer = append(buffer, temp_buff);
 	}
 	free(temp_buff);
