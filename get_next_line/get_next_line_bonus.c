@@ -92,7 +92,7 @@ char	*read_text(int fd, char *buffer)
 		if (read_chars < 0)
 		{
 			free(temp_buff);
-			return (buffer);
+			return (free(buffer), NULL);
 		}
 		temp_buff[read_chars] = '\0';
 		buffer = append(buffer, temp_buff);
@@ -103,10 +103,10 @@ char	*read_text(int fd, char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer[10240];
+	static char	*buffer[1024];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer[fd] = read_text(fd, buffer[fd]);
 	if (!buffer[fd])

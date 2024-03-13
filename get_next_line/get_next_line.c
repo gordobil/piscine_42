@@ -24,7 +24,7 @@ char	*save_line(char	*buffer)
 		i++;
 	line = ft_calloc(i + 2, sizeof(char));
 	if (!line)
-		return (NULL);
+		return (free(buffer), NULL);
 	i = 0;
 	while (buffer[i] != '\0' && buffer[i] != '\n')
 	{
@@ -54,10 +54,7 @@ char	*buffer_update(char *buffer)
 	}
 	temp_buff = ft_calloc((ft_strlen(buffer) - i++), sizeof(char));
 	if (!temp_buff)
-	{
-		free(temp_buff);
-		return (NULL);
-	}
+		return (free(buffer), NULL);
 	j = 0;
 	while (buffer[i] != '\0')
 		temp_buff[j++] = buffer[i++];
@@ -84,7 +81,7 @@ char	*read_text(int fd, char *buffer)
 		buffer = ft_calloc(1, 1);
 	temp_buff = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (!temp_buff)
-		return (buffer);
+		return (free(buffer), NULL);
 	read_chars = 1;
 	while (read_chars != 0 && ft_strchr(buffer, '\n') == NULL)
 	{
@@ -92,7 +89,7 @@ char	*read_text(int fd, char *buffer)
 		if (read_chars < 0)
 		{
 			free(temp_buff);
-			return (NULL);
+			return (free(buffer), NULL);
 		}
 		temp_buff[read_chars] = '\0';
 		buffer = append(buffer, temp_buff);
@@ -110,7 +107,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	buffer = read_text(fd, buffer);
 	if (!buffer)
-		return (free(buffer), NULL);
+		return (NULL);
 	line = save_line(buffer);
 	buffer = buffer_update(buffer);
 	return (line);
